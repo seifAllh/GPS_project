@@ -1,0 +1,24 @@
+# include "tm4c123gh6pm.h"
+#include "macros.h"
+
+void LED_INTI (void) {
+	
+	SYSCTL_RCGCGPIO_R|=0X20;
+	while((SYSCTL_RCGCGPIO_R&0X20)==0){}
+	  GPIO_PORTF_LOCK_R=0X4c4f434B;
+		SET_BIT(GPIO_PORTF_CR_R,1);
+	  SET_BIT(GPIO_PORTF_DIR_R,1);
+    SET_BIT(GPIO_PORTF_DEN_R,1);
+	  CLEAR_BIT(GPIO_PORTF_AMSEL_R,1);
+	  CLEAR_BIT(GPIO_PORTF_AFSEL_R,1);
+		CLEAR_BIT(GPIO_PORTF_DATA_R,1);
+		GPIO_PORTF_PCTL_R&=~0X000000F0;
+	}
+		
+		// read led 
+	
+	void LED_on (unsigned char x ){
+	SET_BIT(GPIO_PORTF_DATA_R,x);
+	
+	}
+	
