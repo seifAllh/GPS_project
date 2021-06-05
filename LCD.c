@@ -60,4 +60,35 @@ void LCD_PORT_INIT(void){
 	 	 delay_micro(37);
 	LCD_COM(0x30);
 	 	 delay_micro(37);
- } 
+ }
+
+ // for data viewing
+
+
+ void LCD_written_out(void)
+{
+	 int i;
+	 char out_word[6]="DONE=>";
+
+	 for (i = 0 ; i<6 ;i++)
+	 {
+			 LCD_DATA(out_word[i]);
+			 delay_milli(20);
+	 }
+}
+
+
+void LCD_numeric_out(int dist){
+	 int i=0;
+	 int arr[10];
+	 int x=dist;
+	 for(i=0 ; dist!=0 ; i++){
+			 arr[i]=x % 10;
+			 dist /=10;
+			 x=dist;
+	 }
+	 for(  ; i!=0 ; i-- ){
+			 LCD_DATA(arr[i-1] + 48);
+			 delay_milli(20);
+	 }
+}
