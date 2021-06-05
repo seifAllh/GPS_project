@@ -50,15 +50,15 @@ void LCD_PORT_Initialization(void){
   GPIO_PORTA_AFSEL_R&= ~0XE0;
 	GPIO_PORTA_PCTL_R&=~0xFFF00000;
 	   delay_micro(37);
-	LCD_COM(0x38);
+	LCD_COMMAND(0x38);
 	 	 delay_micro(37);
-  LCD_COM(0x06);
+LCD_COMMAND(0x06);
 	 	 delay_micro(37);
-  LCD_COM(0x01);
+  LCD_COMMAND(0x01);
 	 	 delay_micro(37);
-  LCD_COM(0x0F);
+LCD_COMMAND(0x0F);
 	 	 delay_micro(37);
-	LCD_COM(0x30);
+LCD_COMMAND(0x30);
 	 	 delay_micro(37);
  }
 
@@ -72,7 +72,7 @@ void LCD_PORT_Initialization(void){
 
 	 for (i = 0 ; i<6 ;i++)
 	 {
-			 LCD_DATA(out_word[i]);
+			LCD_VIEWED_DATA(out_word[i]);
 			 delay_milli(20);
 	 }
 }
@@ -88,7 +88,7 @@ void LCD_numeric_out(int dist){
 			 x=dist;
 	 }
 	 for(  ; i!=0 ; i-- ){
-			 LCD_DATA(arr[i-1] + 48);
+			 LCD_VIEWED_DATA(arr[i-1] + 48);
 			 delay_milli(20);
 	 }
 }
