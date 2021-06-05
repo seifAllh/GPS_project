@@ -7,58 +7,56 @@
 
 
 void SystemInit(){}
-	
+
 int main (void) {
 
 	LED_INTI();
-	LCD_PORT_INIT();
-	
-	
-	
-	
+ LCD_PORT_Initialization();
+
+
+
+
 	//while(1) {
-		
-		
-		  
+
+
+
 	//LCD
-	
-	LCD_COM(0x01);
-  LCD_COM(0x80);
+
+	LCD_COMMAND(0x01);
+  LCD_COMMAND(0x80);
   delay_milli(500);
-	LCD_DATA('d');
+	LCD_VIEWED_DATA('d');
 	delay_milli(1);
-	LCD_DATA('0');
+	LCD_VIEWED_DATA('0');
 	delay_milli(1);
-	LCD_DATA('n');
+	LCD_VIEWED_DATA('n');
 	delay_milli(1);
-	LCD_DATA('e');
+	LCD_VIEWED_DATA('e');
 	delay_milli(1);
-		LCD_DATA('=');
+	LCD_VIEWED_DATA('=');
 	delay_milli(1);
-	LCD_DATA('>');
+LCD_VIEWED_DATA('>');
 	delay_milli(1);
-		LCD_DATA('9');
+	LCD_VIEWED_DATA('9');
 	delay_milli(1);
-		LCD_DATA('9');
+		LCD_VIEWED_DATA('9');
 	delay_milli(1);
-		LCD_DATA('9');
+	LCD_VIEWED_DATA('9');
 	delay_milli(500);
-	// led 
+	// led
 		GPIO_PORTF_DATA_R|=0X06;
-		
-		
-	
-			
-	
-			
-    
-			
-			
-	
-			
-   
-		
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	 }
- 
- 
