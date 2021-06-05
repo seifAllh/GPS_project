@@ -35,7 +35,7 @@ void LCD_COMMAND(unsigned char command)
 
 //initialitation
 
-void LCD_PORT_INIT(void){
+void LCD_PORT_Initialization(void){
 
 	SYSCTL_RCGCGPIO_R|=0x03;
 	// while((SYSCTL_PRGPIO_R&0X03)==0)
