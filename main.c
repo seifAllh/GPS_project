@@ -28,7 +28,6 @@ int main (void) {
 	long double lat2=0;
 	long double lat1=0;
 	long double lon1=0;
-	bool y=false;
 	bool x=false;
 
 	LED_INTI();
