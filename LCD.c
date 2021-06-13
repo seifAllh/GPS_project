@@ -1,6 +1,6 @@
 # include "tm4c123gh6pm.h"
 #include "delay.h"
-
+#include <string.h>
 // data func.
 
 void LCD_VIEWED_DATA(unsigned char data)
