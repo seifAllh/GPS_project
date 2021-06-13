@@ -27,12 +27,6 @@ void LCD_COMMAND(unsigned char command)
 
 
 
-
-
-
-
-
-
 //initialitation
 
 void LCD_PORT_Initialization(void){
@@ -78,17 +72,11 @@ LCD_COMMAND(0x30);
 }
 
 
-void LCD_numeric_out(int dist){
-	 int i=0;
-	 int arr[10];
-	 int x=dist;
-	 for(i=0 ; dist!=0 ; i++){
-			 arr[i]=x % 10;
-			 dist /=10;
-			 x=dist;
-	 }
-	 for(  ; i!=0 ; i-- ){
-			 LCD_VIEWED_DATA(arr[i-1] + 48);
-			 delay_milli(20);
-	 }
+void LCD_printS(char *s){
+    int i;
+	int Size = strlen(s);
+    for(i=0;i<Size;i++){
+        LCD_VIEWED_DATA(s[i]);
+        delay_milli(20);
+    }
 }
