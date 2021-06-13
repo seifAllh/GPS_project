@@ -1,1 +1,77 @@
+#include "tm4c123gh6pm.h"
+#include "stdint.h"
+#include <stdbool.h>
+#include <math.h>
+#include <stdio.h>
+#include "UART.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+char data_array[37]={0};
 
+
+	 // check if the data true
+      bool GPS_ckeck()
+{
+  char D = UART_input();
+
+
+  if (D == '$')
+  { data_array[0]=D;
+    D = UART_input();
+    if (D == 'G')
+    { data_array[1]=D;
+      D= UART_input();
+
+
+      if (D == 'P')
+
+      { data_array[2]=D;
+        D = UART_input();
+
+        if (D == 'G')
+        { data_array[2]=D;
+          D = UART_input();
+
+          if (D == 'L')
+          {data_array[4]=D;
+            D= UART_input();
+
+             if (D == 'L')
+             { data_array[5]=D;
+              D= UART_input();
+
+              if (D == ',')
+              {data_array[6]=D;
+                D= UART_input();
+                if (D == ',')
+                {
+                  return false;
+                }
+                else
+                {
+                  return true;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+   return false;
+}
+
+   // get all data
+
+
+
+// for converting coordinats
+
+
+
+// getting latitudes
+
+
+
+// getting longitude
