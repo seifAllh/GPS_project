@@ -71,7 +71,36 @@ char data_array[37]={0};
 
 
 // getting latitudes
+float get_lat ()
+{
+	   
+	     
+        int i=7;
+        int j=0;
+	      char lat[10]={0};	
+        for(i=7;i<=16;i++)
+       {
+             lat[j]=data_array[i];
+               j++;
+       }
+			
+        return coordinates_Degrees(lat);
+}
 
 
 
 // getting longitude
+float get_lon ()
+{
+	
+        int i=20;
+         int j=0;
+	      char lon[11]={0};
+        for(i=20;i<=30;i++)
+      {
+            lon[j]=data_array[i];
+             j++;
+      }
+       return coordinates_Degrees(lon);
+		}
+
