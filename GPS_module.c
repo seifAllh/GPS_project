@@ -67,6 +67,22 @@ char data_array[37]={0};
 
 
 // for converting coordinats
+float coordinates_Degrees(const char* nmeaPos)
+{
+  float n= 0;
+  if(strlen(nmeaPos)>5)
+  {
+    char integerPart[3+1];
+    int digitCount= (nmeaPos[4]=='.' ? 2 : 3);
+    memcpy(integerPart, nmeaPos, digitCount);
+    integerPart[digitCount]= 0;
+    nmeaPos+= digitCount;
+    n= atoi(integerPart) + atof(nmeaPos)/60.;
+		
+
+  }
+	    return n;
+}
 
 
 
