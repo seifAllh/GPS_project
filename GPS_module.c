@@ -63,7 +63,20 @@ char data_array[37]={0};
 }
 
    // get all data
-
+ void  all_data()
+  {
+    
+          int i=1;
+          for(i=1;i<=30;i++)
+          {
+              data_array[i+6]=UART_input();
+             
+          }
+          
+     
+                
+  }
+	
 
 
 // for converting coordinats
