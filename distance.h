@@ -1,1 +1,1 @@
-long double distance_m(long double latitude1, long double longitude1, long double latitude2,long double longitude2)
+long double distance_m(long double lat1, long double lat2, long double lon1, long double lon2);
