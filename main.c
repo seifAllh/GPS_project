@@ -3,62 +3,47 @@
 #include "LED.h"
 #include "LCD.h"
 #include "delay.h"
-
+#include "distance.h"
 
 
 void SystemInit(){}
-	
+double dis=0;
 int main (void) {
 
 	LED_INTI();
-	LCD_PORT_INIT();
-	
-	
-	
-	
-	//while(1) {
-		
-		
-		  
+ LCD_PORT_Initialization();
+
+
+
+
+	// distance
+
+  dis= distance_m(40,28,41,29);
+
 	//LCD
-	
-	LCD_COM(0x01);
-  LCD_COM(0x80);
-  delay_milli(500);
-	LCD_DATA('d');
-	delay_milli(1);
-	LCD_DATA('0');
-	delay_milli(1);
-	LCD_DATA('n');
-	delay_milli(1);
-	LCD_DATA('e');
-	delay_milli(1);
-		LCD_DATA('=');
-	delay_milli(1);
-	LCD_DATA('>');
-	delay_milli(1);
-		LCD_DATA('9');
-	delay_milli(1);
-		LCD_DATA('9');
-	delay_milli(1);
-		LCD_DATA('9');
-	delay_milli(500);
-	// led 
-		GPIO_PORTF_DATA_R|=0X06;
-		
-		
-	
-			
-	
-			
-    
-			
-			
-	
-			
-   
-		
+		if( dis>100){
+		LCD_COMMAND(0x01);
+	  LCD_COMMAND(0x80);
+	  delay_milli(500);
+		LCD_written_out();
+		LCD_numeric_out(dis);
+
+		// led
+
+	 GPIO_PORTF_DATA_R|=0X06;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	 }
- 
- 
